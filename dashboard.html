@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Job Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Welcome to the Job Dashboard</h2>
+    <button onclick="logout()">Logout</button>
+    <div id="jobList"></div>
+  </div>
+
+  <script>
+    // Redirect if not logged in
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html";
+    }
+
+    const jobs = [
+      { title: "Frontend Developer", company: "Google", location: "Bangalore" },
+      { title: "Backend Developer", company: "Amazon", location: "Hyderabad" },
+      { title: "Full Stack Developer", company: "TCS", location: "Chennai" },
+    ];
+
+    const jobList = document.getElementById("jobList");
+    jobs.forEach(job => {
+      const div = document.createElement("div");
+      div.className = "job-card";
+      div.innerHTML = `
+        <h3>${job.title}</h3>
+        <p><strong>Company:</strong> ${job.company}</p>
+        <p><strong>Location:</strong> ${job.location}</p>
+      `;
+      jobList.appendChild(div);
+    });
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

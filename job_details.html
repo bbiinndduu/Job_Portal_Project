@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        .job-details {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .label {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 1.1em;
+        }
+        .job-details p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .job-details p span {
+            color: #555;
+        }
+        .job-details .info-section {
+            margin-bottom: 20px;
+        }
+        .job-details .info-section:last-child {
+            margin-bottom: 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .job-details .divider {
+            height: 1px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="job-details">
+        <h1>Job Details</h1>
+
+        <div class="info-section">
+            <p><span class="label">Job ID:</span> <span id="jobId">HFTSF2025</span></p>
+            <p><span class="label">Title:</span> <span id="title">WEB DEVELOPER</span></p>
+            <p><span class="label">Company:</span> <span id="company">GOOGLE</span></p>
+            <p><span class="label">Location:</span> <span id="location">BANGALORE</span></p>
+            <p><span class="label">Experience:</span> <span id="experience">2 YEARS</span></p>
+            <p><span class="label">Salary:</span> <span id="salary">45000</span></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <a href="apply.html" class="button">Apply Now</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("jobId").textContent = params.get("jobId") || "HFTSF2025";
+        document.getElementById("title").textContent = params.get("title") || "WEB DEVELOPER";
+        document.getElementById("company").textContent = params.get("company") || "GOOGLE";
+        document.getElementById("location").textContent = params.get("location") || "BANGALORE";
+    </script>
+</body>
+</html>
